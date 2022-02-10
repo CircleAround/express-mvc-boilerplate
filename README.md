@@ -20,13 +20,13 @@ WebのMVCフレームワークを学習する為の、Express + Sequelize で構
 $ git clone git@github.com:CircleAround/express-mvc-boilerplate.git team_todo
 $ cd team_todo
 $ rm -rf .git
-$ npm install
 ```
 
 .env.sampleファイルを.envという名前でコピーします。
 DBの設定については、macOSの環境の場合には全て未入力でも動作するでしょう。他の環境では`DB_USERNAME`、`DB_PASS`は明示的に入れる必要があるかもしれません。その他の`DB_*`の変数については未入力であればデフォルトの値で動作します。詳細は `config/database.js`を確認してください。
 
 ```
+$ npm install
 $ npm run db:reset
 $ npm run dev
 ```
