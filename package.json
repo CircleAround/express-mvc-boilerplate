@@ -7,7 +7,7 @@
     "dev": "npx nodemon ./bin/www",
     "console": "node --experimental-repl-await ./bin/console",
     "lint": "npx eslint . & npx pug-lint ./views",
-    "test": "jest --runInBand",
+    "test": "NODE_ENV=test jest --runInBand",
     "db:drop": "npx sequelize-cli db:drop --debug",
     "db:create": "npx sequelize-cli db:create --debug",
     "db:migrate": "npx sequelize-cli db:migrate --debug",

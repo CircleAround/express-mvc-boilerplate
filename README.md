@@ -236,7 +236,7 @@ Userのassociateメソッドでは以下のようにhasManyを定義します。
     const posts = await models.Post.findAll({ where: { userId: user.id } } )
 
 
-アソシエーションする際、Migration時に外部キー制約を入れるのを推奨します。例えば Postsテーブルの作成時にuserIdに対してUsersテーブルのidへ外部キー制約を入れる場合には下記のようにします。
+アソシエーションする際、Migration時に外部キー制約を入れるのを推奨します。例えば Postsテーブルの作成時にuserIdに対してUsersテーブルのidへ外部キー制約を入れる場合には下記のように `references` を使用します。
 
     module.exports = {
       up: async (queryInterface, Sequelize) => {
