@@ -160,12 +160,12 @@ app.use((req, res, next) => {
 
 app.use((req, res, next) => {
   debug(`${req.method} ${req.path}`);
+  next();
   if (debug.enabled) {
     debug(`req.params: %o`, req.params);
     debug(`req.body: %o`, req.body);
     debug(`req.query: %o`, req.query);
   }
-  next();
 });
 
 const indexRouter = require('./routes/index');
