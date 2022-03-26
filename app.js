@@ -104,7 +104,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-const sessionSecret = process.env.SESSION_SECRET || (process.env.NODE_ENV === 'test' ? 'SECRET' : null);
+const sessionSecret = process.env.SESSION_SECRET || (process.env.NODE_ENV === 'test' ? 'secret' : null);
 if(!sessionSecret) {
   throw new Error('[ERROR]Require environment value of SESSION_SECRET!');
 }
