@@ -32,7 +32,10 @@ module.exports = (sequelize, DataTypes) => {
         throwValidationError('ユーザ新規登録に失敗しました', 'パスワードは必須です');
       }
       const passwordHash = await this.generateHash(password);
-      return await this.create({ passwordHash, username, email, displayName, role });
+      
+      const user = this.build({ passwordHash, username, email, displayName, role });
+      await user.save();
+      return user;
     }
     
     static async authenticate({ username, password }) {

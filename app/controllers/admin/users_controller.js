@@ -81,7 +81,7 @@ class UsersController extends Controller {
   async _user(req) {
     const user = await models.User.findByPk(req.params.user);
     if (!user) {
-      throw new Error('User not find');
+      throw new Error('User not found');
     }
     return user;
   }
