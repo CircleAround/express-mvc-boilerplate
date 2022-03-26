@@ -12,7 +12,7 @@ class TasksController extends Controller {
   async show(req, res) {
     const task = await this._task(req);
     const team = await task.getTeam();
-    const comments = await task.getComments({ include: 'creator' });
+    const comments = await task.getComments({ include: 'creator', order: [['createdAt', 'ASC']] });
     const isManager = await team.isManager(req.user);
 
     res.render('tasks/show', { task, team, comments, isManager });
