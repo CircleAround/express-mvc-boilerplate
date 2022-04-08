@@ -114,7 +114,11 @@ app.use(session({
   secret: sessionSecret,
   store: store,
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
+  cookie: {
+    secure: process.env.SSL_ENABLED !== 'false',
+    httpOnly: true
+  }
 }));
 app.use(passport.initialize());
 app.use(passport.session());
