@@ -116,7 +116,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   cookie: {
-    secure: process.env.SSL_ENABLED !== 'false',
+    secure: process.env.NODE_ENV === 'test' ? false : process.env.SSL_ENABLED !== 'false',
     httpOnly: true
   }
 }));
