@@ -142,6 +142,13 @@ if (process.env.NODE_ENV !== 'test') {
     res.locals.csrfToken = csrfToken;
     next();
   });
+
+  const rateLimit = require('express-rate-limit');
+  const limiter = rateLimit({
+    windowMs: 10 * 60 * 1000,
+    max: 100
+  });
+  app.use('/login', limiter);
 }
 
 app.use(flash({ sessionKeyName: '_flashMessage' }));
