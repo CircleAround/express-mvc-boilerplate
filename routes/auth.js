@@ -2,6 +2,13 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+const rateLimit = require('express-rate-limit');
+
+const limiter = rateLimit({
+  windowMs: 5 * 60 * 1000,
+  max: 50
+});
+router.use(limiter);
 
 const models = require('../app/models');
 

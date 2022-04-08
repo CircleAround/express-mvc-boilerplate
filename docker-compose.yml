@@ -1,11 +1,11 @@
-version: '3'
+version: "3"
 services:
   web:
     build:
       context: .
       dockerfile: Dockerfile.development
     command: ./boot.sh
-    ports: 
+    ports:
       - 3000:3000
     links:
       - db
@@ -13,6 +13,7 @@ services:
     environment:
       - DEBUG=app:*,express-mvc:*,route:*
       - SESSION_SECRET=sercet
+      - SSL_ENABLED=false
       - DB_USERNAME=postgres
       - DB_PASS=password
       - DB_DATABASE=express_mvc_development
