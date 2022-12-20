@@ -1,4 +1,4 @@
 version: '3'
 services:
   web:
-    command: sh
+    command: /bin/sh -c "while sleep 1000; do :; done"
